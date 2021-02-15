@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  app:
+    container_name: cryptopush
+    restart: always
+    build: .
+    ports: 
+      - "80:3000"
+    links:
+      - database
+    volumes: 
+      - .:/usr/src/app
+  database:
+    container_name: mongodb
+    restart: always
+    image: mongo:4.4
+    ports: 
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: dani
+      MONGO_INITDB_ROOT_PASSWORD: s1mpl3
+      MONGO_INITDB_DATABASE: cryptos
+    logging: 
+      driver: none
+
