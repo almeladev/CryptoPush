@@ -3,7 +3,7 @@ const server = require('../server');
 
 const connect = () => {
     if (!mongoose.connection.readyState) {
-        mongoose.connect('mongodb://database:27017/cryptos?authSource=admin', { 
+        mongoose.connect(process.env.DB_URL, { 
             useUnifiedTopology: true,
             useNewUrlParser: true,
             user: process.env.DB_USER || '',
