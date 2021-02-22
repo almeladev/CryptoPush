@@ -12,6 +12,32 @@
 <body>
     <div class="container">
         <h1 class="text-center"><%= title %></h1>
+        <hr>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Criptomoneda</th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Detalles</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% for(var i = 0; i < cryptos.length; i++) { %>
+                <tr>
+                    <th scope="row"><%= cryptos[i].idCMC %></th>
+                    <td>
+                        <img src="<%= cryptos[i].logo %>" alt="<%= cryptos[i].name %>">
+                        <%= cryptos[i].name + ' (' + cryptos[i].symbol + ') ' %>
+                    </td>
+                    <td><%= cryptos[i].category %></td>
+                    <td>99999</td>
+                    <td> [+] </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

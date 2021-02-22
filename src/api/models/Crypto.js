@@ -1,10 +1,14 @@
-const conn = require('../../config/db').connection();
-const Schema = require('mongoose').Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-let Cryptos = Schema({
-    id: Number,
+let CryptoSchema = Schema({
+    idCMC: Number,
     name: String,
-    status: Boolean
+    symbol: String,
+    logo: String,
+    description: String,
+    category: String
 });
 
-module.exports = conn.model('cryptos', Cryptos);
+const Crypto = mongoose.model('Crypto', CryptoSchema);
+module.exports = Crypto;
